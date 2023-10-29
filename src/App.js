@@ -15,6 +15,11 @@ const App = () => {
 			text: todo.trim(),
 			completed: false,
 		};
+
+		/*...todos => todos list er copy banay. state immutable.
+		so, array te kichu na kore notun kore array ta ke copy kore
+		modification kore update kore deoya hoy */
+
 		if (newTodo.text.length > 0) {
 			setTodos([...todos].concat(newTodo));
 		} else {
@@ -51,6 +56,8 @@ const App = () => {
 		setTodos(updatedTodos);
 		setTodoEditing(null);
 	}
+
+	/*useEffect => used for saving todo list in local storage */
 
 	useEffect(() => {
 		const json = localStorage.getItem("todos");
